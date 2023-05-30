@@ -32,31 +32,7 @@ export class TodoManageComponent implements OnInit {
   }
 
   public add(): void {
-    console.log('test');
-    console.log(this.todoService.all())
     this.todoService.add(this.todoForm.getRawValue());
-    console.log(this.todoService.all())
-    this.reset();
-  }
-
-  public edit(index: number): void {
-    this.selectedTodoItem = index;
-    this.todoForm.setValue(this.todoService.get(index));
-  }
-
-  public update(): void {
-    this.todoService.update(this.selectedTodoItem, this.todoForm.getRawValue());
-    this.reset();
-  }
-
-  public remove(index: number): void {
-    this.todoService.remove(index);
-    this.reset();
-  }
-
-  reset() {
-    this.todoForm.reset();
-    this.selectedTodoItem = this.NO_ITEM_SELECTED;
   }
 
 }
